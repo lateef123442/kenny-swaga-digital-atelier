@@ -1,13 +1,35 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Navigation from '@/components/Navigation';
+import HeroSection from '@/components/HeroSection';
+import BrandStatement from '@/components/BrandStatement';
+import LookbookGallery from '@/components/LookbookGallery';
+import AtelierSection from '@/components/AtelierSection';
+import Footer from '@/components/Footer';
+import MagneticCursor from '@/components/MagneticCursor';
+import SmoothScroll from '@/components/SmoothScroll';
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <SmoothScroll>
+      {/* Custom cursor - hidden on touch devices */}
+      <div className="hidden lg:block">
+        <MagneticCursor />
       </div>
-    </div>
+      
+      <Navigation />
+      
+      <main className="cursor-none lg:cursor-none">
+        <HeroSection />
+        <BrandStatement />
+        <section id="lookbook">
+          <LookbookGallery />
+        </section>
+        <section id="atelier">
+          <AtelierSection />
+        </section>
+      </main>
+      
+      <Footer />
+    </SmoothScroll>
   );
 };
 

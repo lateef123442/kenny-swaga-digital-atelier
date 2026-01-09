@@ -1,96 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Kenny Swaga Luxury Dark Theme */
+    --background: 0 0% 4%;
+    --foreground: 0 0% 95%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 6%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Champagne Gold Primary */
+    --primary: 43 54% 59%;
+    --primary-foreground: 0 0% 4%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 95%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 43 54% 59%;
+    --accent-foreground: 0 0% 4%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 43 54% 59%;
 
-    --radius: 0.5rem;
+    --radius: 0px;
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Custom luxury tokens */
+    --obsidian: 0 0% 4%;
+    --obsidian-light: 0 0% 8%;
+    --champagne: 43 54% 59%;
+    --champagne-light: 43 54% 70%;
+    --ivory: 40 33% 95%;
+    --platinum: 0 0% 75%;
+    
+    /* Typography */
+    --font-serif: 'Cinzel', serif;
+    --font-sans: 'Space Grotesk', sans-serif;
+    
+    /* Shadows & Effects */
+    --shadow-luxury: 0 25px 80px -20px hsl(0 0% 0% / 0.8);
+    --shadow-glow: 0 0 60px hsl(43 54% 59% / 0.15);
+    --shadow-float: 0 30px 60px -15px hsl(0 0% 0% / 0.5);
+    
+    /* Gradients */
+    --gradient-gold: linear-gradient(135deg, hsl(43 54% 59%), hsl(43 54% 70%));
+    --gradient-dark: linear-gradient(180deg, hsl(0 0% 4%), hsl(0 0% 8%));
+    --gradient-overlay: linear-gradient(180deg, transparent 0%, hsl(0 0% 4% / 0.9) 100%);
   }
 }
 
@@ -99,7 +67,272 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
-  body {
-    @apply bg-background text-foreground;
+  html {
+    scroll-behavior: smooth;
   }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    letter-spacing: 0.08em;
+  }
+
+  ::selection {
+    background: hsl(var(--champagne) / 0.3);
+    color: hsl(var(--foreground));
+  }
+}
+
+@layer components {
+  /* Luxury Button Variants */
+  .btn-luxury {
+    @apply relative overflow-hidden px-12 py-5 text-sm tracking-[0.3em] uppercase;
+    font-family: var(--font-sans);
+    background: transparent;
+    border: 1px solid hsl(var(--champagne) / 0.4);
+    color: hsl(var(--champagne));
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .btn-luxury::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-gold);
+    transition: left 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: -1;
+  }
+
+  .btn-luxury:hover::before {
+    left: 0;
+  }
+
+  .btn-luxury:hover {
+    color: hsl(var(--obsidian));
+    border-color: hsl(var(--champagne));
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Glitch Text Effect */
+  .glitch-text {
+    position: relative;
+  }
+
+  .glitch-text::before,
+  .glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+
+  .glitch-text:hover::before {
+    animation: glitch-1 0.3s linear;
+    color: hsl(var(--champagne));
+    opacity: 0.8;
+  }
+
+  .glitch-text:hover::after {
+    animation: glitch-2 0.3s linear;
+    color: hsl(var(--ivory));
+    opacity: 0.8;
+  }
+
+  /* Magnetic Hover */
+  .magnetic {
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  /* Float Animation */
+  .float-luxury {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Parallax Layer */
+  .parallax-layer {
+    will-change: transform;
+    transition: transform 0.1s linear;
+  }
+
+  /* Horizontal Scroll Gallery */
+  .gallery-scroll {
+    display: flex;
+    gap: 4rem;
+    padding: 4rem 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    cursor: grab;
+  }
+
+  .gallery-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .gallery-scroll:active {
+    cursor: grabbing;
+  }
+
+  /* Gallery Item */
+  .gallery-item {
+    flex-shrink: 0;
+    position: relative;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .gallery-item:hover {
+    transform: scale(1.02);
+  }
+
+  /* Gold Underline */
+  .gold-underline {
+    position: relative;
+  }
+
+  .gold-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--gradient-gold);
+    transition: width 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .gold-underline:hover::after {
+    width: 100%;
+  }
+
+  /* Luxury Card */
+  .luxury-card {
+    @apply relative overflow-hidden;
+    background: hsl(var(--obsidian-light));
+    border: 1px solid hsl(var(--border) / 0.3);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .luxury-card:hover {
+    border-color: hsl(var(--champagne) / 0.5);
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Text Gradient */
+  .text-gradient-gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@layer utilities {
+  /* Custom Animations */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+      transform: translateY(-10px) rotate(0.5deg);
+    }
+    75% {
+      transform: translateY(10px) rotate(-0.5deg);
+    }
+  }
+
+  @keyframes glitch-1 {
+    0% { clip-path: inset(40% 0 61% 0); transform: translate(-2px, 2px); }
+    20% { clip-path: inset(92% 0 1% 0); transform: translate(1px, -1px); }
+    40% { clip-path: inset(43% 0 1% 0); transform: translate(-1px, 1px); }
+    60% { clip-path: inset(25% 0 58% 0); transform: translate(2px, -2px); }
+    80% { clip-path: inset(54% 0 7% 0); transform: translate(-2px, 1px); }
+    100% { clip-path: inset(58% 0 43% 0); transform: translate(0); }
+  }
+
+  @keyframes glitch-2 {
+    0% { clip-path: inset(65% 0 24% 0); transform: translate(2px, -2px); }
+    20% { clip-path: inset(10% 0 84% 0); transform: translate(-1px, 1px); }
+    40% { clip-path: inset(87% 0 4% 0); transform: translate(1px, -1px); }
+    60% { clip-path: inset(33% 0 49% 0); transform: translate(-2px, 2px); }
+    80% { clip-path: inset(78% 0 12% 0); transform: translate(2px, -1px); }
+    100% { clip-path: inset(12% 0 78% 0); transform: translate(0); }
+  }
+
+  @keyframes reveal-up {
+    from {
+      opacity: 0;
+      transform: translateY(60px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes reveal-scale {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px hsl(43 54% 59% / 0.1);
+    }
+    50% {
+      box-shadow: 0 0 40px hsl(43 54% 59% / 0.3);
+    }
+  }
+
+  .animate-reveal-up {
+    animation: reveal-up 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  }
+
+  .animate-reveal-scale {
+    animation: reveal-scale 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  }
+
+  .animate-shimmer {
+    background: linear-gradient(90deg, transparent, hsl(var(--champagne) / 0.1), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 3s infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  /* Delay utilities */
+  .delay-100 { animation-delay: 0.1s; }
+  .delay-200 { animation-delay: 0.2s; }
+  .delay-300 { animation-delay: 0.3s; }
+  .delay-400 { animation-delay: 0.4s; }
+  .delay-500 { animation-delay: 0.5s; }
+  .delay-600 { animation-delay: 0.6s; }
+  .delay-700 { animation-delay: 0.7s; }
+  .delay-800 { animation-delay: 0.8s; }
 }
