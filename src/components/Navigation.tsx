@@ -1,16 +1,17 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link, useLocation } from 'react-router-dom';
 
 const navLinks = [
-  { name: 'Collection', href: '#collection' },
-  { name: 'Lookbook', href: '#lookbook' },
-  { name: 'Atelier', href: '#atelier' },
-  { name: 'About', href: '#about' },
+  { name: 'Collection', href: '/shop' },
+  { name: 'About', href: '/about' },
+  { name: 'Atelier', href: '/#atelier' },
 ];
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,6 +20,10 @@ const Navigation = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location]);
 
   return (
     <>
@@ -32,37 +37,43 @@ const Navigation = () => {
       >
         <nav className="container flex items-center justify-between py-6">
           {/* Logo */}
-          <a href="/" className="font-serif text-xl tracking-[0.2em] text-foreground gold-underline">
+          <Link to="/" className="font-serif text-xl tracking-[0.2em] text-foreground gold-underline">
             KS
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-12">
             {navLinks.map((link, index) => (
-              <motion.a
+              <motion.div
                 key={link.name}
-                href={link.href}
-                className="text-xs tracking-[0.25em] uppercase text-muted-foreground hover:text-champagne transition-colors duration-500 gold-underline"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
               >
-                {link.name}
-              </motion.a>
+                <Link
+                  to={link.href}
+                  className="text-xs tracking-[0.25em] uppercase text-muted-foreground hover:text-champagne transition-colors duration-500 gold-underline"
+                >
+                  {link.name}
+                </Link>
+              </motion.div>
             ))}
           </div>
 
           {/* Right Side */}
           <div className="flex items-center gap-6">
-            <motion.a
-              href="#contact"
-              className="hidden md:block text-xs tracking-[0.25em] uppercase text-champagne hover:text-champagne-light transition-colors duration-500"
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 1.1 }}
             >
-              Contact
-            </motion.a>
+              <Link
+                to="/#atelier"
+                className="hidden md:block text-xs tracking-[0.25em] uppercase text-champagne hover:text-champagne-light transition-colors duration-500"
+              >
+                Contact
+              </Link>
+            </motion.div>
 
             {/* Mobile Menu Button */}
             <button
@@ -98,31 +109,48 @@ const Navigation = () => {
             className="fixed inset-0 z-40 bg-background md:hidden"
           >
             <div className="flex flex-col items-center justify-center h-full gap-8">
-              {navLinks.map((link, index) => (
-                <motion.a
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsMenuOpen(false)}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -30 }}
+                transition={{ duration: 0.4 }}
+              >
+                <Link
+                  to="/"
                   className="font-serif text-3xl tracking-[0.15em] text-foreground"
+                >
+                  Home
+                </Link>
+              </motion.div>
+              {navLinks.map((link, index) => (
+                <motion.div
+                  key={link.name}
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -30 }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  transition={{ duration: 0.4, delay: (index + 1) * 0.1 }}
                 >
-                  {link.name}
-                </motion.a>
+                  <Link
+                    to={link.href}
+                    className="font-serif text-3xl tracking-[0.15em] text-foreground"
+                  >
+                    {link.name}
+                  </Link>
+                </motion.div>
               ))}
-              <motion.a
-                href="#contact"
-                onClick={() => setIsMenuOpen(false)}
-                className="mt-8 btn-luxury"
+              <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.4, delay: 0.4 }}
+                transition={{ duration: 0.4, delay: 0.5 }}
               >
-                Contact
-              </motion.a>
+                <Link
+                  to="/#atelier"
+                  className="mt-8 btn-luxury"
+                >
+                  Contact
+                </Link>
+              </motion.div>
             </div>
           </motion.div>
         )}
