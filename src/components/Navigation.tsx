@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
+import { Heart } from 'lucide-react';
+import CartDrawer from '@/components/CartDrawer';
+import { useWishlist } from '@/contexts/WishlistContext';
 
 const navLinks = [
   { name: 'Collection', href: '/shop' },
@@ -12,6 +15,7 @@ const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const { wishlist } = useWishlist();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -62,17 +66,33 @@ const Navigation = () => {
 
           {/* Right Side */}
           <div className="flex items-center gap-6">
+            {/* Wishlist */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 1 }}
+              className="hidden md:block"
+            >
+              <Link
+                to="/shop"
+                className="relative flex items-center text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <Heart className={`w-5 h-5 ${wishlist.length > 0 ? 'fill-champagne text-champagne' : ''}`} />
+                {wishlist.length > 0 && (
+                  <span className="absolute -top-2 -right-2 w-5 h-5 bg-champagne text-background text-[10px] flex items-center justify-center font-medium">
+                    {wishlist.length}
+                  </span>
+                )}
+              </Link>
+            </motion.div>
+
+            {/* Cart Drawer */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 1.1 }}
             >
-              <Link
-                to="/#atelier"
-                className="hidden md:block text-xs tracking-[0.25em] uppercase text-champagne hover:text-champagne-light transition-colors duration-500"
-              >
-                Contact
-              </Link>
+              <CartDrawer />
             </motion.div>
 
             {/* Mobile Menu Button */}
