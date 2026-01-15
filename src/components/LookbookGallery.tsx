@@ -1,9 +1,9 @@
 import { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
-import lookbook1 from '@/assets/lookbook-1.jpg';
-import lookbook2 from '@/assets/lookbook-2.jpg';
-import lookbook3 from '@/assets/lookbook-3.jpg';
-import lookbook4 from '@/assets/lookbook-4.jpg';
+import lookbook1 from '@/assets/agbada-cream.jpg';
+import lookbook2 from '@/assets/ankara-blazer.jpg';
+import lookbook3 from '@/assets/senator-black.jpg';
+import lookbook4 from '@/assets/senator-white.jpg';
 
 const lookbookItems = [
   { id: 1, image: lookbook1, title: '"OBSIDIAN"', subtitle: 'Oversize Tailored Coat', price: '€4,200' },
