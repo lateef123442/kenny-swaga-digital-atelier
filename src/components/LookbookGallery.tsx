@@ -6,10 +6,10 @@ import lookbook3 from '@/assets/senator-black.jpg';
 import lookbook4 from '@/assets/senator-white.jpg';
 
 const lookbookItems = [
-  { id: 1, image: lookbook1, title: '"OBSIDIAN"', subtitle: 'Oversize Tailored Coat', price: '€4,200' },
-  { id: 2, image: lookbook2, title: '"IVORY"', subtitle: 'Sculptural Gown', price: '€8,500' },
-  { id: 3, image: lookbook3, title: '"SHADOW"', subtitle: 'Deconstructed Suit', price: '€3,800' },
-  { id: 4, image: lookbook4, title: '"ETHEREAL"', subtitle: 'Flowing Silk Dress', price: '€6,200' },
+  { id: 1, image: lookbook1, title: '"Cream-Agbada"', subtitle: 'Nice Cream Colour Ankara', price: '#35000' },
+  { id: 2, image: lookbook2, title: '"Blazer Akara"', subtitle: 'Good Looking Blazer Ankara', price: '#25000' },
+  { id: 3, image: lookbook3, title: '"Black Senator"', subtitle: 'Well Sewed Black Senator', price: '#33000' },
+  { id: 4, image: lookbook4, title: '"Senator White"', subtitle: 'white Ankara for Royalty', price: '#35000' },
 ];
 
 const GalleryItem = ({ item, index }: { item: typeof lookbookItems[0]; index: number }) => {
