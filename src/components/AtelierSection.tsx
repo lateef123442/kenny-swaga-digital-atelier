@@ -18,7 +18,7 @@ const AtelierSection = () => {
             transition={{ duration: 1 }}
           >
             <span className="text-[10px] tracking-[0.5em] uppercase text-champagne mb-6 block">
-              Private Appointments
+              Custom Tailoring
             </span>
             <h2 className="font-serif text-5xl md:text-7xl lg:text-8xl tracking-[0.08em] text-foreground mb-8">
               THE
@@ -27,17 +27,17 @@ const AtelierSection = () => {
             </h2>
             <div className="h-px w-24 bg-gradient-to-r from-champagne to-transparent mb-8" />
             <p className="text-muted-foreground text-base leading-relaxed max-w-lg mb-12">
-              Experience the essence of bespoke luxury. Our atelier offers exclusive 
-              private fittings and consultations for discerning clientele. Every piece 
-              is meticulously crafted to embody your unique vision.
+              Step into our Lagos atelier where Nigerian heritage meets contemporary style. 
+              Every piece is handcrafted by master tailors using premium fabrics. Book a private 
+              fitting to experience true Nigerian luxury menswear.
             </p>
             
             {/* Stats */}
             <div className="flex gap-12">
               {[
-                { number: '12', label: 'Master Tailors' },
-                { number: '48h', label: 'Bespoke Timeline' },
-                { number: '∞', label: 'Possibilities' },
+                { number: '8+', label: 'Master Tailors' },
+                { number: '72h', label: 'Express Delivery' },
+                { number: '36', label: 'States Covered' },
               ].map((stat, index) => (
                 <motion.div
                   key={stat.label}

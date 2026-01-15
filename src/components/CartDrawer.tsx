@@ -168,13 +168,12 @@ const CartDrawer = () => {
               </p>
 
               {/* Checkout Button */}
-              <motion.button
-                className="w-full py-4 bg-champagne text-background text-xs tracking-[0.25em] uppercase hover:bg-foreground transition-colors duration-500"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+              <Link
+                to="/checkout"
+                className="w-full py-4 bg-champagne text-background text-xs tracking-[0.25em] uppercase hover:bg-foreground transition-colors duration-500 block text-center"
               >
                 Proceed to Checkout
-              </motion.button>
+              </Link>
 
               {/* Continue Shopping */}
               <Link

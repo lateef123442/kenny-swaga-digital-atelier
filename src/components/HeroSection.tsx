@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import heroImage from '@/assets/hero-fashion.jpg';
 
 const HeroSection = () => {
@@ -29,10 +30,10 @@ const HeroSection = () => {
         />
         {/* Overlay gradient */}
         <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/30 to-background" />
-        {/* Grain texture overlay */}
-        <div className="absolute inset-0 opacity-20 mix-blend-overlay"
+        {/* Nigerian pattern overlay */}
+        <div className="absolute inset-0 opacity-10 mix-blend-overlay"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C4A052' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           }}
         />
       </motion.div>
@@ -47,10 +48,26 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="mb-8 text-xs tracking-[0.5em] uppercase text-champagne"
+          className="mb-4 text-xs tracking-[0.5em] uppercase text-champagne"
         >
-          Haute Couture • Paris
+          Premium Nigerian Menswear
         </motion.span>
+
+        {/* Nigerian Pride Badge */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="mb-6 flex items-center gap-3"
+        >
+          <span className="h-px w-8 bg-green-600" />
+          <div className="flex gap-1">
+            <div className="w-3 h-4 bg-green-600" />
+            <div className="w-3 h-4 bg-white" />
+            <div className="w-3 h-4 bg-green-600" />
+          </div>
+          <span className="h-px w-8 bg-green-600" />
+        </motion.div>
 
         {/* Main Logo */}
         <div className="overflow-hidden">
@@ -58,7 +75,7 @@ const HeroSection = () => {
             initial={{ y: 120 }}
             animate={{ y: 0 }}
             transition={{ duration: 1.2, ease: [0.23, 1, 0.32, 1], delay: 0.3 }}
-            className="glitch-text text-center font-serif text-6xl md:text-8xl lg:text-[10rem] font-light tracking-[0.15em] text-foreground"
+            className="glitch-text text-center font-serif text-5xl md:text-7xl lg:text-[8rem] font-light tracking-[0.15em] text-foreground"
             data-text="KENNY SWAGA"
           >
             KENNY SWAGA
@@ -70,24 +87,39 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1 }}
-          className="mt-8 flex items-center gap-8"
+          className="mt-6 flex items-center gap-8"
         >
           <span className="h-px w-16 bg-gradient-to-r from-transparent to-champagne" />
           <p className="text-sm tracking-[0.4em] uppercase text-muted-foreground">
-            Collection MMXXVI
+            Dress Like a King • Lagos, Nigeria
           </p>
           <span className="h-px w-16 bg-gradient-to-l from-transparent to-champagne" />
         </motion.div>
 
-        {/* CTA Button */}
-        <motion.button
+        {/* Tagline */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.2 }}
+          className="mt-4 text-lg md:text-xl text-muted-foreground font-light italic"
+        >
+          "Where African Heritage Meets Modern Elegance"
+        </motion.p>
+
+        {/* CTA Buttons */}
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.3 }}
-          className="btn-luxury mt-16"
+          transition={{ duration: 0.8, delay: 1.5 }}
+          className="mt-12 flex flex-col sm:flex-row gap-4"
         >
-          Enter the Atelier
-        </motion.button>
+          <Link to="/shop" className="btn-luxury">
+            Shop Collection
+          </Link>
+          <Link to="/about" className="px-12 py-5 text-sm tracking-[0.3em] uppercase border border-muted-foreground/30 text-muted-foreground hover:border-champagne hover:text-champagne transition-all duration-500">
+            Our Story
+          </Link>
+        </motion.div>
       </motion.div>
 
       {/* Scroll Indicator */}
@@ -115,9 +147,23 @@ const HeroSection = () => {
         className="absolute right-8 top-1/2 -translate-y-1/2 hidden lg:block"
       >
         <div className="flex flex-col items-center gap-4 text-[10px] tracking-[0.3em] uppercase text-muted-foreground [writing-mode:vertical-rl]">
-          <span>SS26</span>
+          <span>Made in Nigeria</span>
           <span className="h-16 w-px bg-champagne/30" />
-          <span>001</span>
+          <span>🇳🇬</span>
+        </div>
+      </motion.div>
+
+      {/* Left Decorative */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.4 }}
+        transition={{ delay: 1.7 }}
+        className="absolute left-8 top-1/2 -translate-y-1/2 hidden lg:block"
+      >
+        <div className="flex flex-col items-center gap-4 text-[10px] tracking-[0.3em] uppercase text-muted-foreground [writing-mode:vertical-rl] rotate-180">
+          <span>Senator • Agbada • Kaftan</span>
+          <span className="h-16 w-px bg-green-600/30" />
+          <span>Authentic</span>
         </div>
       </motion.div>
     </section>
