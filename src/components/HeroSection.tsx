@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import heroImage from '@/assets/hero-fashion.jpg';
+import heroImage from '@/assets/ankara-blazer.jpg';
 
 const HeroSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
