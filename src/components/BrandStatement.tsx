@@ -43,11 +43,11 @@ const BrandStatement = () => {
             transition={{ duration: 1, delay: 0.2 }}
             className="font-serif text-3xl md:text-5xl lg:text-6xl leading-tight tracking-[0.05em] text-foreground mb-12"
           >
-            Fashion is not something that exists in dresses only.
+            Every Nigerian man deserves to
             <br />
-            <span className="text-gradient-gold">Fashion is in the sky,</span>
+            <span className="text-gradient-gold">dress like royalty.</span>
             <br />
-            in the street.
+            We make that possible.
           </motion.h2>
 
           {/* Attribution */}
@@ -60,9 +60,35 @@ const BrandStatement = () => {
           >
             <span className="h-px w-12 bg-champagne/50" />
             <span className="text-xs tracking-[0.4em] uppercase text-champagne">
-              The Philosophy
+              Our Promise
             </span>
             <span className="h-px w-12 bg-champagne/50" />
+          </motion.div>
+
+          {/* Features */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
+          >
+            <div>
+              <p className="text-3xl md:text-4xl font-serif text-champagne mb-2">100%</p>
+              <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground">Nigerian Made</p>
+            </div>
+            <div>
+              <p className="text-3xl md:text-4xl font-serif text-champagne mb-2">Premium</p>
+              <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground">Fabrics Only</p>
+            </div>
+            <div>
+              <p className="text-3xl md:text-4xl font-serif text-champagne mb-2">Custom</p>
+              <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground">Tailoring</p>
+            </div>
+            <div>
+              <p className="text-3xl md:text-4xl font-serif text-champagne mb-2">Lagos</p>
+              <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground">Nationwide Delivery</p>
+            </div>
           </motion.div>
         </motion.div>
       </div>
